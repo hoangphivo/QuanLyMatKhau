@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
+using BUS;
 
 namespace UngDung_QuanLyMatKhau
 {
@@ -15,6 +17,28 @@ namespace UngDung_QuanLyMatKhau
         public frm_LogIn()
         {
             InitializeComponent();
+        }
+        TaiKhoanBUS taikhoanbus = new TaiKhoanBUS();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (taikhoanbus.KTDangNhap(txtUsername.Text,txtPassword.Text) == true)
+            {
+                this.Hide();
+                formUngDung frm = new formUngDung();
+                frm.Show();
+            }
+            else
+            MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frm_LogIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
