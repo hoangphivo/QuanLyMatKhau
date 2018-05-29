@@ -9,7 +9,7 @@ namespace BUS
 {
     public class TaiKhoanBUS
     {
-        QLTaiKhoanDataContext TaiKhoans = new QLTaiKhoanDataContext();
+        QL_TaiKhoanDataContext TaiKhoans = new QL_TaiKhoanDataContext();
         public bool KTDangNhap(string Username,string Password)
         {
             int taikhoan = (from tk in TaiKhoans.TaiKhoans

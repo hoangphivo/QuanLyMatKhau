@@ -47,31 +47,30 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="QLTaiKhoan.designer.cs">
+    <Compile Include="QL_TaiKhoan.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTaiKhoan.dbml</DependentUpon>
+      <DependentUpon>QL_TaiKhoan.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QLTaiKhoan.dbml">
+    <None Include="QL_TaiKhoan.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLTaiKhoan.designer.cs</LastGenOutput>
+      <LastGenOutput>QL_TaiKhoan.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="QL_TaiKhoan.dbml.layout">
+      <DependentUpon>QL_TaiKhoan.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="QLTaiKhoan.dbml.layout">
-      <DependentUpon>QLTaiKhoan.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

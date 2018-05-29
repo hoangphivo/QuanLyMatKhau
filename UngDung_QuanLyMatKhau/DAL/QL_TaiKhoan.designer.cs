@@ -23,7 +23,7 @@ namespace DAL
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TaiKhoan")]
-	public partial class QLTaiKhoanDataContext : System.Data.Linq.DataContext
+	public partial class QL_TaiKhoanDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -32,31 +32,31 @@ namespace DAL
     partial void OnCreated();
     #endregion
 		
-		public QLTaiKhoanDataContext() : 
-				base(global::DAL.Properties.Settings.Default.TaiKhoanConnectionString, mappingSource)
+		public QL_TaiKhoanDataContext() : 
+				base(global::DAL.Properties.Settings.Default.TaiKhoanConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public QLTaiKhoanDataContext(string connection) : 
+		public QL_TaiKhoanDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public QLTaiKhoanDataContext(System.Data.IDbConnection connection) : 
+		public QL_TaiKhoanDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public QLTaiKhoanDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public QL_TaiKhoanDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public QLTaiKhoanDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public QL_TaiKhoanDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -79,7 +79,7 @@ namespace DAL
 		
 		private string _MatKhau;
 		
-		private string _GhiChu;
+		private string _Note;
 		
 		public TaiKhoan()
 		{
@@ -117,18 +117,18 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(50)")]
-		public string GhiChu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(50)")]
+		public string Note
 		{
 			get
 			{
-				return this._GhiChu;
+				return this._Note;
 			}
 			set
 			{
-				if ((this._GhiChu != value))
+				if ((this._Note != value))
 				{
-					this._GhiChu = value;
+					this._Note = value;
 				}
 			}
 		}
