@@ -15,6 +15,19 @@ namespace UngDung_QuanLyMatKhau
         public formUngDung()
         {
             InitializeComponent();
+            
+        }
+
+        private void formUngDung_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_LogIn frm = new frm_LogIn();
+            frm.Show();
         }
     }
 }

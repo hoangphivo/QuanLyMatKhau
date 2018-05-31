@@ -17,6 +17,7 @@ namespace UngDung_QuanLyMatKhau
         public frm_LogIn()
         {
             InitializeComponent();
+            
         }
         TaiKhoanBUS taikhoanbus = new TaiKhoanBUS();
         private void button2_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace UngDung_QuanLyMatKhau
             }
             else
             MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

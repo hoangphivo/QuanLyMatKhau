@@ -57,6 +57,7 @@
             // pictureSetting
             // 
             this.pictureSetting.BackColor = System.Drawing.Color.Gray;
+            this.pictureSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureSetting.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.settings_512;
             this.pictureSetting.Location = new System.Drawing.Point(185, 0);
             this.pictureSetting.Name = "pictureSetting";
@@ -68,6 +69,7 @@
             // pictureBack
             // 
             this.pictureBack.BackColor = System.Drawing.Color.Gray;
+            this.pictureBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBack.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.arrow_left_512;
             this.pictureBack.Location = new System.Drawing.Point(0, 0);
             this.pictureBack.Name = "pictureBack";
@@ -75,6 +77,7 @@
             this.pictureBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBack.TabIndex = 0;
             this.pictureBack.TabStop = false;
+            this.pictureBack.Click += new System.EventHandler(this.pictureBack_Click);
             // 
             // lblChieuDaiMK
             // 
@@ -215,7 +218,7 @@
             this.lblDangXuat.AutoSize = true;
             this.lblDangXuat.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDangXuat.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDangXuat.Location = new System.Drawing.Point(53, 9);
+            this.lblDangXuat.Location = new System.Drawing.Point(46, 9);
             this.lblDangXuat.Name = "lblDangXuat";
             this.lblDangXuat.Size = new System.Drawing.Size(112, 29);
             this.lblDangXuat.TabIndex = 15;
@@ -226,7 +229,7 @@
             this.lblCaiDat.AutoSize = true;
             this.lblCaiDat.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaiDat.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCaiDat.Location = new System.Drawing.Point(234, 9);
+            this.lblCaiDat.Location = new System.Drawing.Point(231, 9);
             this.lblCaiDat.Name = "lblCaiDat";
             this.lblCaiDat.Size = new System.Drawing.Size(84, 29);
             this.lblCaiDat.TabIndex = 16;
@@ -308,6 +311,7 @@
             this.Controls.Add(this.pictureBack);
             this.Name = "formUngDung";
             this.Text = "Ứng dụng quản lý mật khẩu";
+            this.Load += new System.EventHandler(this.formUngDung_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).EndInit();
