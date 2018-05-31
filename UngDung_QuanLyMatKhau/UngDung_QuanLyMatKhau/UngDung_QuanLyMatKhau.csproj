@@ -125,6 +125,15 @@
   <ItemGroup>
     <None Include="Resources\Untitled-1-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_96445130-stock-illustration-arrow-logout-exit-icon-support.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_close_minimize_remove-512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

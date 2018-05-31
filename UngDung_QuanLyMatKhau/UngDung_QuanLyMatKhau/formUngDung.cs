@@ -29,5 +29,10 @@ namespace UngDung_QuanLyMatKhau
             frm_LogIn frm = new frm_LogIn();
             frm.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

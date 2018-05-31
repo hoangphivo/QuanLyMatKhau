@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureSetting = new System.Windows.Forms.PictureBox();
-            this.pictureBack = new System.Windows.Forms.PictureBox();
             this.lblChieuDaiMK = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxMKInHoa = new System.Windows.Forms.CheckBox();
@@ -49,35 +47,15 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureSetting = new System.Windows.Forms.PictureBox();
+            this.pictureBack = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureSetting
-            // 
-            this.pictureSetting.BackColor = System.Drawing.Color.Gray;
-            this.pictureSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureSetting.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.settings_512;
-            this.pictureSetting.Location = new System.Drawing.Point(185, 0);
-            this.pictureSetting.Name = "pictureSetting";
-            this.pictureSetting.Size = new System.Drawing.Size(47, 50);
-            this.pictureSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureSetting.TabIndex = 1;
-            this.pictureSetting.TabStop = false;
-            // 
-            // pictureBack
-            // 
-            this.pictureBack.BackColor = System.Drawing.Color.Gray;
-            this.pictureBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBack.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.arrow_left_512;
-            this.pictureBack.Location = new System.Drawing.Point(0, 0);
-            this.pictureBack.Name = "pictureBack";
-            this.pictureBack.Size = new System.Drawing.Size(47, 50);
-            this.pictureBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBack.TabIndex = 0;
-            this.pictureBack.TabStop = false;
-            this.pictureBack.Click += new System.EventHandler(this.pictureBack_Click);
             // 
             // lblChieuDaiMK
             // 
@@ -282,12 +260,62 @@
             this.button8.Text = "Ghi chú";
             this.button8.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox1.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.minus_close_minimize_remove_512;
+            this.pictureBox1.Location = new System.Drawing.Point(321, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureSetting
+            // 
+            this.pictureSetting.BackColor = System.Drawing.Color.Gray;
+            this.pictureSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureSetting.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.settings_512;
+            this.pictureSetting.Location = new System.Drawing.Point(185, 0);
+            this.pictureSetting.Name = "pictureSetting";
+            this.pictureSetting.Size = new System.Drawing.Size(47, 50);
+            this.pictureSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureSetting.TabIndex = 1;
+            this.pictureSetting.TabStop = false;
+            // 
+            // pictureBack
+            // 
+            this.pictureBack.BackColor = System.Drawing.Color.Gray;
+            this.pictureBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBack.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.arrow_left_512;
+            this.pictureBack.Location = new System.Drawing.Point(0, 0);
+            this.pictureBack.Name = "pictureBack";
+            this.pictureBack.Size = new System.Drawing.Size(47, 50);
+            this.pictureBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBack.TabIndex = 0;
+            this.pictureBack.TabStop = false;
+            this.pictureBack.Click += new System.EventHandler(this.pictureBack_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(373, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 29);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Thoát";
+            // 
             // formUngDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(621, 472);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -309,12 +337,14 @@
             this.Controls.Add(this.lblChieuDaiMK);
             this.Controls.Add(this.pictureSetting);
             this.Controls.Add(this.pictureBack);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formUngDung";
             this.Text = "Ứng dụng quản lý mật khẩu";
             this.Load += new System.EventHandler(this.formUngDung_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +373,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
