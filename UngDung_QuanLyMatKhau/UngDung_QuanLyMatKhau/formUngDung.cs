@@ -34,5 +34,32 @@ namespace UngDung_QuanLyMatKhau
         {
             Application.Exit();
         }
+        #region move form
+        bool ismousedown = false;
+        Point mousedownPosition = new Point();
+        private void frm_LogIn_MouseDown(object sender, MouseEventArgs e)
+        {
+            ismousedown = true;
+            mousedownPosition.X = e.X;
+            mousedownPosition.Y = e.Y;
+        }
+        private void frm_LogIn_MouseUp(object sender, MouseEventArgs e)
+        {
+            ismousedown = false;
+            Cursor cur = Cursors.Arrow;
+            this.Cursor = cur;
+        }
+        private void frm_LogIn_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (ismousedown == true)
+            {
+                Point newPoint = new Point();
+                newPoint.X = this.Location.X + (e.X - mousedownPosition.X);
+                newPoint.Y = this.Location.Y + (e.Y - mousedownPosition.Y);
+                this.Location = newPoint;
+            }
+        }
+        #endregion
+
     }
 }
