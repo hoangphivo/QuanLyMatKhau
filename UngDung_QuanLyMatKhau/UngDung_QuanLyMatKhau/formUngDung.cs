@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using DAL;
+using BUS;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace UngDung_QuanLyMatKhau
 {
@@ -20,6 +22,11 @@ namespace UngDung_QuanLyMatKhau
 
         private void formUngDung_Load(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from TaiKhoan", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dgvDSTK.DataSource = dt;
 
         }
 
