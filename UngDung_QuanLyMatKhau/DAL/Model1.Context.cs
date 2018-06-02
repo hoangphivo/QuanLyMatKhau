@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TaiKhoanEntities1 : DbContext
+    public partial class TaiKhoanEntities2 : DbContext
     {
-        public TaiKhoanEntities1()
-            : base("name=TaiKhoanEntities1")
+        public TaiKhoanEntities2()
+            : base("name=TaiKhoanEntities2")
         {
         }
     

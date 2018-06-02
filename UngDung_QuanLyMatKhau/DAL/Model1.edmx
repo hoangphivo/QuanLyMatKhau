@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TaiKhoan" Type="varchar" MaxLength="50" />
           <Property Name="MatKhau" Type="varchar" MaxLength="50" />
           <Property Name="Note" Type="nvarchar" MaxLength="50" />
@@ -26,12 +26,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TaiKhoan1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="TaiKhoanEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TaiKhoanEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
         </EntityContainer>
       </Schema>
@@ -39,7 +39,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TaiKhoanModelStoreContainer" CdmEntityContainer="TaiKhoanEntities1">
+        <EntityContainerMapping StorageEntityContainer="TaiKhoanModelStoreContainer" CdmEntityContainer="TaiKhoanEntities2">
           <EntitySetMapping Name="TaiKhoans">
             <EntityTypeMapping TypeName="TaiKhoanModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">

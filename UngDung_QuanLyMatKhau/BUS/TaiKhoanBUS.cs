@@ -9,7 +9,7 @@ namespace BUS
 {
     public class TaiKhoanBUS
     {
-        TaiKhoanEntities1 TaiKhoans = new TaiKhoanEntities1();
+        TaiKhoanEntities2 TaiKhoans = new TaiKhoanEntities2();
         public bool KTDangNhap(string Username,string Password)
         {
             int taikhoan = (from tk in TaiKhoans.TaiKhoans

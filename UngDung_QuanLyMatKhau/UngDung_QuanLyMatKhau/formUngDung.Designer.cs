@@ -45,6 +45,11 @@
             this.lblDangXuat = new System.Windows.Forms.Label();
             this.lblCaiDat = new System.Windows.Forms.Label();
             this.dgvDSTK = new System.Windows.Forms.DataGridView();
+            this.taiKhoanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matKhauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taiKhoanDataSet = new UngDung_QuanLyMatKhau.TaiKhoanDataSet();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -52,19 +57,20 @@
             this.pictureSetting = new System.Windows.Forms.PictureBox();
             this.pictureBack = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.taiKhoanDataSet = new UngDung_QuanLyMatKhau.TaiKhoanDataSet();
-            this.taiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taiKhoanTableAdapter = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TaiKhoanTableAdapter();
             this.tableAdapterManager = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager();
-            this.taiKhoanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matKhauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblChieuDaiMK
@@ -164,17 +170,18 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(53, 411);
+            this.button2.Location = new System.Drawing.Point(53, 514);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 49);
             this.button2.TabIndex = 11;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(198, 411);
+            this.button3.Location = new System.Drawing.Point(198, 514);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 49);
             this.button3.TabIndex = 12;
@@ -184,22 +191,24 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(350, 411);
+            this.button4.Location = new System.Drawing.Point(350, 514);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(91, 49);
             this.button4.TabIndex = 13;
             this.button4.Text = "Xóa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(479, 411);
+            this.button5.Location = new System.Drawing.Point(479, 514);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 49);
             this.button5.TabIndex = 14;
             this.button5.Text = "Sửa";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // lblDangXuat
             // 
@@ -227,27 +236,76 @@
             // 
             // dgvDSTK
             // 
+            this.dgvDSTK.AllowUserToAddRows = false;
             this.dgvDSTK.AutoGenerateColumns = false;
+            this.dgvDSTK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDSTK.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.dgvDSTK.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvDSTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSTK.ColumnHeadersVisible = false;
             this.dgvDSTK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.taiKhoanDataGridViewTextBoxColumn,
             this.matKhauDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn});
             this.dgvDSTK.DataSource = this.taiKhoanBindingSource;
+            this.dgvDSTK.GridColor = System.Drawing.Color.Black;
             this.dgvDSTK.Location = new System.Drawing.Point(53, 250);
+            this.dgvDSTK.MultiSelect = false;
             this.dgvDSTK.Name = "dgvDSTK";
+            this.dgvDSTK.ReadOnly = true;
+            this.dgvDSTK.RowHeadersVisible = false;
+            this.dgvDSTK.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.dgvDSTK.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDSTK.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Silver;
+            this.dgvDSTK.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.dgvDSTK.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDSTK.RowTemplate.Height = 36;
+            this.dgvDSTK.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDSTK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSTK.Size = new System.Drawing.Size(521, 143);
             this.dgvDSTK.TabIndex = 17;
+            // 
+            // taiKhoanDataGridViewTextBoxColumn
+            // 
+            this.taiKhoanDataGridViewTextBoxColumn.DataPropertyName = "TaiKhoan";
+            this.taiKhoanDataGridViewTextBoxColumn.HeaderText = "TaiKhoan";
+            this.taiKhoanDataGridViewTextBoxColumn.Name = "taiKhoanDataGridViewTextBoxColumn";
+            this.taiKhoanDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // matKhauDataGridViewTextBoxColumn
+            // 
+            this.matKhauDataGridViewTextBoxColumn.DataPropertyName = "MatKhau";
+            this.matKhauDataGridViewTextBoxColumn.HeaderText = "MatKhau";
+            this.matKhauDataGridViewTextBoxColumn.Name = "matKhauDataGridViewTextBoxColumn";
+            this.matKhauDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.noteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // taiKhoanBindingSource
+            // 
+            this.taiKhoanBindingSource.DataMember = "TaiKhoan";
+            this.taiKhoanBindingSource.DataSource = this.taiKhoanDataSet;
+            // 
+            // taiKhoanDataSet
+            // 
+            this.taiKhoanDataSet.DataSetName = "TaiKhoanDataSet";
+            this.taiKhoanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button6.ForeColor = System.Drawing.Color.Silver;
             this.button6.Location = new System.Drawing.Point(53, 220);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(165, 31);
+            this.button6.Size = new System.Drawing.Size(169, 31);
             this.button6.TabIndex = 18;
             this.button6.Text = "Tên tài khoản";
             this.button6.UseVisualStyleBackColor = false;
@@ -255,12 +313,13 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button7.Location = new System.Drawing.Point(239, 220);
+            this.button7.ForeColor = System.Drawing.Color.Silver;
+            this.button7.Location = new System.Drawing.Point(222, 220);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(154, 31);
+            this.button7.Size = new System.Drawing.Size(167, 31);
             this.button7.TabIndex = 19;
             this.button7.Text = "Mật khẩu";
             this.button7.UseVisualStyleBackColor = false;
@@ -268,12 +327,13 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button8.Location = new System.Drawing.Point(409, 220);
+            this.button8.ForeColor = System.Drawing.Color.Silver;
+            this.button8.Location = new System.Drawing.Point(389, 220);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(165, 31);
+            this.button8.Size = new System.Drawing.Size(185, 31);
             this.button8.TabIndex = 20;
             this.button8.Text = "Ghi chú";
             this.button8.UseVisualStyleBackColor = false;
@@ -328,16 +388,6 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Thoát";
             // 
-            // taiKhoanDataSet
-            // 
-            this.taiKhoanDataSet.DataSetName = "TaiKhoanDataSet";
-            this.taiKhoanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taiKhoanBindingSource
-            // 
-            this.taiKhoanBindingSource.DataMember = "TaiKhoan";
-            this.taiKhoanBindingSource.DataSource = this.taiKhoanDataSet;
-            // 
             // taiKhoanTableAdapter
             // 
             this.taiKhoanTableAdapter.ClearBeforeFill = true;
@@ -346,32 +396,75 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.TaiKhoanTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // taiKhoanDataGridViewTextBoxColumn
+            // txtTaiKhoan
             // 
-            this.taiKhoanDataGridViewTextBoxColumn.DataPropertyName = "TaiKhoan";
-            this.taiKhoanDataGridViewTextBoxColumn.HeaderText = "TaiKhoan";
-            this.taiKhoanDataGridViewTextBoxColumn.Name = "taiKhoanDataGridViewTextBoxColumn";
+            this.txtTaiKhoan.Location = new System.Drawing.Point(126, 417);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Size = new System.Drawing.Size(175, 20);
+            this.txtTaiKhoan.TabIndex = 23;
             // 
-            // matKhauDataGridViewTextBoxColumn
+            // txtMatKhau
             // 
-            this.matKhauDataGridViewTextBoxColumn.DataPropertyName = "MatKhau";
-            this.matKhauDataGridViewTextBoxColumn.HeaderText = "MatKhau";
-            this.matKhauDataGridViewTextBoxColumn.Name = "matKhauDataGridViewTextBoxColumn";
+            this.txtMatKhau.Location = new System.Drawing.Point(394, 417);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(180, 20);
+            this.txtMatKhau.TabIndex = 24;
             // 
-            // noteDataGridViewTextBoxColumn
+            // label3
             // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(48, 418);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 19);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Tài Khoản";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(317, 417);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 19);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Mật khẩu";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.Location = new System.Drawing.Point(126, 465);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(448, 20);
+            this.txtGhiChu.TabIndex = 27;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(48, 464);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 19);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Ghi chú";
             // 
             // formUngDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(621, 472);
+            this.ClientSize = new System.Drawing.Size(621, 595);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtGhiChu);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtMatKhau);
+            this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button8);
@@ -403,11 +496,11 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frm_LogIn_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frm_LogIn_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,5 +538,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private System.Windows.Forms.Label label5;
     }
 }

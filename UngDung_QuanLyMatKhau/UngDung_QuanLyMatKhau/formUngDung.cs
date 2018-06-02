@@ -14,19 +14,18 @@ namespace UngDung_QuanLyMatKhau
 {
     public partial class formUngDung : Form
     {
+        SqlCommand cmd;
+        SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
+        int ID = 0;
         public formUngDung()
         {
             InitializeComponent();
             
         }
-
+        TaiKhoanBUS taikhoanbus = new TaiKhoanBUS();
         private void formUngDung_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
-            SqlDataAdapter sda = new SqlDataAdapter("Select * from TaiKhoan", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dgvDSTK.DataSource = dt;
+            DisplayData();
 
         }
 
@@ -68,5 +67,70 @@ namespace UngDung_QuanLyMatKhau
         }
         #endregion
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("insert into TaiKhoan(TaiKhoan,MatKhau,Note) values(@taikhoan,@matkhau,@ghichu)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
+            cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
+            cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            //taikhoanbus.ThemTaiKhoan(txtTaiKhoan.Text, txtMatKhau.Text, txtGhiChu.Text);
+            MessageBox.Show("Thêm thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DisplayData();
+            ClearData();
+        }
+        private void DisplayData()
+        {
+            SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from TaiKhoan", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dgvDSTK.DataSource = dt;
+        }
+        private void ClearData()
+        {
+            txtTaiKhoan.Text = "";
+            txtMatKhau.Text = "";
+            txtGhiChu.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (ID!=0)
+            {
+                cmd = new SqlCommand("delete TaiKhoan where ID=@id", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Deleted Successfully!");
+                DisplayData();
+                ClearData();
+            }
+
+        }
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = Convert.ToInt32(dgvDSTK.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txtTaiKhoan.Text = dgvDSTK.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtMatKhau.Text = dgvDSTK.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtGhiChu.Text = dgvDSTK.Rows[e.RowIndex].Cells[3].Value.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("update TaiKhoan set TaiKhoan=@taikhoan,MatKhau=@matkhau,Note=@ghichu where ID=@Id", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
+            cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
+            cmd.Parameters.AddWithValue("@ghichu",txtGhiChu.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Record Updated Successfully");
+            con.Close();
+            DisplayData();
+            ClearData();
+        }
     }
 }
