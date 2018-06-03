@@ -24,5 +24,23 @@ namespace BUS
                 return false;
             }
         }
+        public bool KTTaiKhoan (string taikhoan)
+        {
+            int kt = (from tk in TaiKhoans.TaiKhoans
+                      where tk.TaiKhoan1 == taikhoan
+                      select tk).Count();
+            if (kt == 1)
+                return true;
+            else
+                return false;
+        }
+        public void SuaTaiKhoan(string taikhoan, string matkhau,string ghichu)
+        {
+            TaiKhoan suataikhoan = (from tk in TaiKhoans.TaiKhoans
+                                    select tk).Single(t => t.TaiKhoan1 == taikhoan);
+            suataikhoan.MatKhau = matkhau;
+            suataikhoan.Note = ghichu;
+            TaiKhoans.SaveChanges();
+        }
     }
 }

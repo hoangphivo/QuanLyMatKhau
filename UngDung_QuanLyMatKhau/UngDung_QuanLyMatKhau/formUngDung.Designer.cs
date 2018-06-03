@@ -38,13 +38,14 @@
             this.txtChieuDaiMK = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.lblDangXuat = new System.Windows.Forms.Label();
             this.lblCaiDat = new System.Windows.Forms.Label();
             this.dgvDSTK = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taiKhoanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matKhauDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,14 +58,14 @@
             this.pictureSetting = new System.Windows.Forms.PictureBox();
             this.pictureBack = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.taiKhoanTableAdapter = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TaiKhoanTableAdapter();
-            this.tableAdapterManager = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.taiKhoanTableAdapter = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TaiKhoanTableAdapter();
+            this.tableAdapterManager = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).BeginInit();
@@ -106,6 +107,7 @@
             this.checkBoxMKInHoa.TabIndex = 4;
             this.checkBoxMKInHoa.Text = "Mật khẩu gồm chữ In Hoa";
             this.checkBoxMKInHoa.UseVisualStyleBackColor = true;
+            this.checkBoxMKInHoa.CheckedChanged += new System.EventHandler(this.checkBoxMKInHoa_CheckedChanged);
             // 
             // checkBoxMKSo
             // 
@@ -149,6 +151,7 @@
             this.txtChieuDaiMK.Name = "txtChieuDaiMK";
             this.txtChieuDaiMK.Size = new System.Drawing.Size(31, 20);
             this.txtChieuDaiMK.TabIndex = 8;
+            this.txtChieuDaiMK.TextChanged += new System.EventHandler(this.txtChieuDaiMK_TextChanged);
             // 
             // textBox2
             // 
@@ -166,49 +169,51 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Tạo mật khẩu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(53, 514);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 49);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(53, 514);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(91, 49);
+            this.btnAdd.TabIndex = 11;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnSave
             // 
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(198, 514);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 49);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Lưu";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(198, 514);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(87, 49);
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnDelete
             // 
-            this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(350, 514);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 49);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Xóa";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnDelete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(350, 514);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(91, 49);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btnEdit
             // 
-            this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(479, 514);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 49);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "Sửa";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnEdit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(479, 514);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(95, 49);
+            this.btnEdit.TabIndex = 14;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.button5_Click);
             // 
             // lblDangXuat
             // 
@@ -244,6 +249,7 @@
             this.dgvDSTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSTK.ColumnHeadersVisible = false;
             this.dgvDSTK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.taiKhoanDataGridViewTextBoxColumn,
             this.matKhauDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn});
@@ -264,6 +270,15 @@
             this.dgvDSTK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSTK.Size = new System.Drawing.Size(521, 143);
             this.dgvDSTK.TabIndex = 17;
+            this.dgvDSTK.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // taiKhoanDataGridViewTextBoxColumn
             // 
@@ -388,17 +403,6 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Thoát";
             // 
-            // taiKhoanTableAdapter
-            // 
-            this.taiKhoanTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.TaiKhoanTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Location = new System.Drawing.Point(126, 417);
@@ -453,6 +457,17 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Ghi chú";
             // 
+            // taiKhoanTableAdapter
+            // 
+            this.taiKhoanTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.TaiKhoanTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // formUngDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,10 +488,10 @@
             this.Controls.Add(this.dgvDSTK);
             this.Controls.Add(this.lblCaiDat);
             this.Controls.Add(this.lblDangXuat);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtChieuDaiMK);
@@ -519,10 +534,10 @@
         private System.Windows.Forms.TextBox txtChieuDaiMK;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblDangXuat;
         private System.Windows.Forms.Label lblCaiDat;
         private System.Windows.Forms.DataGridView dgvDSTK;
@@ -535,14 +550,15 @@
         private System.Windows.Forms.BindingSource taiKhoanBindingSource;
         private TaiKhoanDataSetTableAdapters.TaiKhoanTableAdapter taiKhoanTableAdapter;
         private TaiKhoanDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
     }
 }

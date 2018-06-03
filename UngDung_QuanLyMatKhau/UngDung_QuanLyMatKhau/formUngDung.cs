@@ -16,7 +16,7 @@ namespace UngDung_QuanLyMatKhau
     {
         SqlCommand cmd;
         SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
-        int ID = 0;
+        int ID;
         public formUngDung()
         {
             InitializeComponent();
@@ -69,17 +69,21 @@ namespace UngDung_QuanLyMatKhau
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("insert into TaiKhoan(TaiKhoan,MatKhau,Note) values(@taikhoan,@matkhau,@ghichu)", con);
-            con.Open();
-            cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
-            cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
-            cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            //taikhoanbus.ThemTaiKhoan(txtTaiKhoan.Text, txtMatKhau.Text, txtGhiChu.Text);
-            MessageBox.Show("Thêm thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (taikhoanbus.KTTaiKhoan(txtTaiKhoan.Text) == true){
+                MessageBox.Show("Tài khoản đã tồn tại", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                cmd = new SqlCommand("insert into TaiKhoan(TaiKhoan,MatKhau,Note) values(@taikhoan,@matkhau,@ghichu)", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
+                cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
+                cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
+                con.Close();
+                MessageBox.Show("Thêm thành công hãy bấm nút lưu để thay đổi", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
             DisplayData();
-            ClearData();
         }
         private void DisplayData()
         {
@@ -98,39 +102,84 @@ namespace UngDung_QuanLyMatKhau
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (ID!=0)
-            {
-                cmd = new SqlCommand("delete TaiKhoan where ID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Record Deleted Successfully!");
-                DisplayData();
-                ClearData();
-            }
+
+            cmd = new SqlCommand("delete TaiKhoan where ID=@id", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@id", ID);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Xóa thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DisplayData();
+            ClearData();
 
         }
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             ID = Convert.ToInt32(dgvDSTK.Rows[e.RowIndex].Cells[0].Value.ToString());
             txtTaiKhoan.Text = dgvDSTK.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtMatKhau.Text = dgvDSTK.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtGhiChu.Text = dgvDSTK.Rows[e.RowIndex].Cells[3].Value.ToString();
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("update TaiKhoan set TaiKhoan=@taikhoan,MatKhau=@matkhau,Note=@ghichu where ID=@Id", con);
+            cmd = new SqlCommand("update TaiKhoan set TaiKhoan=@taikhoan,MatKhau=@matkhau,Note=@ghichu where ID=@id", con);
             con.Open();
+            cmd.Parameters.AddWithValue("@id", ID);
             cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
             cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
             cmd.Parameters.AddWithValue("@ghichu",txtGhiChu.Text);
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Record Updated Successfully");
+            MessageBox.Show("Cập nhật thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             con.Close();
             DisplayData();
             ClearData();
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("insert into TaiKhoan(TaiKhoan,MatKhau,Note) values(@taikhoan,@matkhau,@ghichu)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
+            cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
+            cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Lưu thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DisplayData();
+            ClearData();
+
+        }
+
+        private void checkBoxMKInHoa_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RandomString();
+        }
+        private string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            if (lowerCase)
+                return builder.ToString().ToLower();
+            return builder.ToString();
+        }
+
+        private void txtChieuDaiMK_TextChanged(object sender, EventArgs e)
+        {
+            int size;
         }
     }
 }

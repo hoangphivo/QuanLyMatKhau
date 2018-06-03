@@ -285,6 +285,8 @@ namespace UngDung_QuanLyMatKhau {
             
             private global::System.Data.DataColumn columnNote;
             
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TaiKhoanDataTable() {
@@ -344,6 +346,14 @@ namespace UngDung_QuanLyMatKhau {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -384,10 +394,18 @@ namespace UngDung_QuanLyMatKhau {
                 object[] columnValuesArray = new object[] {
                         TaiKhoan,
                         MatKhau,
-                        Note};
+                        Note,
+                        null};
                 rowTaiKhoanRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTaiKhoanRow);
                 return rowTaiKhoanRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TaiKhoanRow FindById(int Id) {
+                return ((TaiKhoanRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -410,6 +428,7 @@ namespace UngDung_QuanLyMatKhau {
                 this.columnTaiKhoan = base.Columns["TaiKhoan"];
                 this.columnMatKhau = base.Columns["MatKhau"];
                 this.columnNote = base.Columns["Note"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,9 +440,19 @@ namespace UngDung_QuanLyMatKhau {
                 base.Columns.Add(this.columnMatKhau);
                 this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNote);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnTaiKhoan.MaxLength = 50;
                 this.columnMatKhau.MaxLength = 50;
                 this.columnNote.MaxLength = 50;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,6 +638,17 @@ namespace UngDung_QuanLyMatKhau {
                 }
                 set {
                     this[this.tableTaiKhoan.NoteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableTaiKhoan.IdColumn]));
+                }
+                set {
+                    this[this.tableTaiKhoan.IdColumn] = value;
                 }
             }
             
@@ -811,6 +851,7 @@ namespace UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("TaiKhoan", "TaiKhoan");
             tableMapping.ColumnMappings.Add("MatKhau", "MatKhau");
             tableMapping.ColumnMappings.Add("Note", "Note");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -825,23 +866,21 @@ namespace UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [TaiKhoan] ([TaiKhoan], [MatKhau], [Note], [Id]) VALUES (@TaiKhoan, @" +
-                "MatKhau, @Note, @Id);\r\nSELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan WHERE (I" +
-                "d = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [TaiKhoan] ([TaiKhoan], [MatKhau], [Note]) VALUES (@TaiKhoan, @MatKha" +
+                "u, @Note);\r\nSELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan WHERE (Id = SCOPE_I" +
+                "DENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TaiKhoan", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaiKhoan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MatKhau", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MatKhau", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [TaiKhoan] SET [TaiKhoan] = @TaiKhoan, [MatKhau] = @MatKhau, [Note] = @Note, [Id] = @Id WHERE (((@IsNull_TaiKhoan = 1 AND [TaiKhoan] IS NULL) OR ([TaiKhoan] = @Original_TaiKhoan)) AND ((@IsNull_MatKhau = 1 AND [MatKhau] IS NULL) OR ([MatKhau] = @Original_MatKhau)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ([Id] = @Original_Id));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [TaiKhoan] SET [TaiKhoan] = @TaiKhoan, [MatKhau] = @MatKhau, [Note] = @Note WHERE (((@IsNull_TaiKhoan = 1 AND [TaiKhoan] IS NULL) OR ([TaiKhoan] = @Original_TaiKhoan)) AND ((@IsNull_MatKhau = 1 AND [MatKhau] IS NULL) OR ([MatKhau] = @Original_MatKhau)) AND ((@IsNull_Note = 1 AND [Note] IS NULL) OR ([Note] = @Original_Note)) AND ([Id] = @Original_Id));
 SELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TaiKhoan", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaiKhoan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MatKhau", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MatKhau", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TaiKhoan", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaiKhoan", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TaiKhoan", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaiKhoan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MatKhau", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MatKhau", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -849,6 +888,7 @@ SELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan WHERE (Id = @Id)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Note", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Note", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Note", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -864,7 +904,7 @@ SELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TaiKhoan, MatKhau, Note FROM TaiKhoan";
+            this._commandCollection[0].CommandText = "SELECT TaiKhoan, MatKhau, Note, Id FROM TaiKhoan";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
