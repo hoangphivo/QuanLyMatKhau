@@ -43,7 +43,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblDangXuat = new System.Windows.Forms.Label();
-            this.lblCaiDat = new System.Windows.Forms.Label();
+            this.lblDoiMatKhau = new System.Windows.Forms.Label();
             this.dgvDSTK = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taiKhoanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +54,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureSetting = new System.Windows.Forms.PictureBox();
-            this.pictureBack = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
@@ -66,6 +63,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.taiKhoanTableAdapter = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TaiKhoanTableAdapter();
             this.tableAdapterManager = new UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureSetting = new System.Windows.Forms.PictureBox();
+            this.pictureBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanDataSet)).BeginInit();
@@ -227,17 +227,17 @@
             this.lblDangXuat.TabIndex = 15;
             this.lblDangXuat.Text = "Đăng xuất";
             // 
-            // lblCaiDat
+            // lblDoiMatKhau
             // 
-            this.lblCaiDat.AutoSize = true;
-            this.lblCaiDat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCaiDat.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaiDat.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCaiDat.Location = new System.Drawing.Point(232, 9);
-            this.lblCaiDat.Name = "lblCaiDat";
-            this.lblCaiDat.Size = new System.Drawing.Size(84, 29);
-            this.lblCaiDat.TabIndex = 16;
-            this.lblCaiDat.Text = "Cài Đặt";
+            this.lblDoiMatKhau.AutoSize = true;
+            this.lblDoiMatKhau.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblDoiMatKhau.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoiMatKhau.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDoiMatKhau.Location = new System.Drawing.Point(211, 9);
+            this.lblDoiMatKhau.Name = "lblDoiMatKhau";
+            this.lblDoiMatKhau.Size = new System.Drawing.Size(145, 29);
+            this.lblDoiMatKhau.TabIndex = 16;
+            this.lblDoiMatKhau.Text = "Đổi mật khẩu";
             // 
             // dgvDSTK
             // 
@@ -353,51 +353,13 @@
             this.button8.Text = "Ghi chú";
             this.button8.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Gray;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.minus_close_minimize_remove_512;
-            this.pictureBox1.Location = new System.Drawing.Point(321, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureSetting
-            // 
-            this.pictureSetting.BackColor = System.Drawing.Color.Gray;
-            this.pictureSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureSetting.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.settings_512;
-            this.pictureSetting.Location = new System.Drawing.Point(185, 0);
-            this.pictureSetting.Name = "pictureSetting";
-            this.pictureSetting.Size = new System.Drawing.Size(47, 50);
-            this.pictureSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureSetting.TabIndex = 1;
-            this.pictureSetting.TabStop = false;
-            // 
-            // pictureBack
-            // 
-            this.pictureBack.BackColor = System.Drawing.Color.Gray;
-            this.pictureBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBack.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.arrow_left_512;
-            this.pictureBack.Location = new System.Drawing.Point(0, 0);
-            this.pictureBack.Name = "pictureBack";
-            this.pictureBack.Size = new System.Drawing.Size(47, 50);
-            this.pictureBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBack.TabIndex = 0;
-            this.pictureBack.TabStop = false;
-            this.pictureBack.Click += new System.EventHandler(this.pictureBack_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(373, 11);
+            this.label1.Location = new System.Drawing.Point(403, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 29);
             this.label1.TabIndex = 22;
@@ -468,6 +430,45 @@
             this.tableAdapterManager.TaiKhoanTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = UngDung_QuanLyMatKhau.TaiKhoanDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.minus_close_minimize_remove_512;
+            this.pictureBox1.Location = new System.Drawing.Point(352, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureSetting
+            // 
+            this.pictureSetting.BackColor = System.Drawing.Color.Gray;
+            this.pictureSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureSetting.Image = global::UngDung_QuanLyMatKhau.Properties.Resources._250130_200;
+            this.pictureSetting.Location = new System.Drawing.Point(159, 0);
+            this.pictureSetting.Name = "pictureSetting";
+            this.pictureSetting.Size = new System.Drawing.Size(51, 50);
+            this.pictureSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureSetting.TabIndex = 1;
+            this.pictureSetting.TabStop = false;
+            this.pictureSetting.Click += new System.EventHandler(this.pictureSetting_Click);
+            // 
+            // pictureBack
+            // 
+            this.pictureBack.BackColor = System.Drawing.Color.Gray;
+            this.pictureBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBack.Image = global::UngDung_QuanLyMatKhau.Properties.Resources.arrow_left_512;
+            this.pictureBack.Location = new System.Drawing.Point(0, 0);
+            this.pictureBack.Name = "pictureBack";
+            this.pictureBack.Size = new System.Drawing.Size(47, 50);
+            this.pictureBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBack.TabIndex = 0;
+            this.pictureBack.TabStop = false;
+            this.pictureBack.Click += new System.EventHandler(this.pictureBack_Click);
+            // 
             // formUngDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,7 +487,7 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.dgvDSTK);
-            this.Controls.Add(this.lblCaiDat);
+            this.Controls.Add(this.lblDoiMatKhau);
             this.Controls.Add(this.lblDangXuat);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
@@ -524,7 +525,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBack;
-        private System.Windows.Forms.PictureBox pictureSetting;
         private System.Windows.Forms.Label lblChieuDaiMK;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBoxMKInHoa;
@@ -539,7 +539,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblDangXuat;
-        private System.Windows.Forms.Label lblCaiDat;
+        private System.Windows.Forms.Label lblDoiMatKhau;
         private System.Windows.Forms.DataGridView dgvDSTK;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -560,5 +560,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taiKhoanDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureSetting;
     }
 }

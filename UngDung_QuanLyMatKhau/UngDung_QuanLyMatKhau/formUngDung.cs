@@ -17,10 +17,15 @@ namespace UngDung_QuanLyMatKhau
         SqlCommand cmd;
         SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
         int ID;
-        public formUngDung()
+        public formUngDung( )
         {
             InitializeComponent();
-            
+            formChangePassword frm = new formChangePassword(this);
+        }
+        private void pictureSetting_Click(object sender, EventArgs e)
+        {
+            formChangePassword frm2 = new formChangePassword(this);
+            frm2.Show();
         }
         TaiKhoanBUS taikhoanbus = new TaiKhoanBUS();
         private void formUngDung_Load(object sender, EventArgs e)
@@ -85,7 +90,7 @@ namespace UngDung_QuanLyMatKhau
             }
             DisplayData();
         }
-        private void DisplayData()
+        public void DisplayData()
         {
             SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=TaiKhoan;User ID=sa;Password=123456");
             SqlDataAdapter sda = new SqlDataAdapter("Select * from TaiKhoan", con);
@@ -160,7 +165,7 @@ namespace UngDung_QuanLyMatKhau
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RandomString();
+
         }
         private string RandomString(int size, bool lowerCase)
         {
@@ -181,5 +186,9 @@ namespace UngDung_QuanLyMatKhau
         {
             int size;
         }
+
+
+
+
     }
 }

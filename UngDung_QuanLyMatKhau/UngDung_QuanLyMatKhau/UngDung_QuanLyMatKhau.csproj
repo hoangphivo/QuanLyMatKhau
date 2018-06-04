@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChangePassword.Designer.cs">
+      <DependentUpon>formChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TaiKhoanDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formChangePassword.resx">
+      <DependentUpon>formChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLogIn.resx">
       <DependentUpon>formLogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minus_close_minimize_remove-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\250130-200.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
