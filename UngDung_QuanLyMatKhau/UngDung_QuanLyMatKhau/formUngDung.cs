@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace UngDung_QuanLyMatKhau
 {
@@ -21,6 +22,7 @@ namespace UngDung_QuanLyMatKhau
         {
             InitializeComponent();
             formChangePassword frm = new formChangePassword(this);
+
         }
         private void pictureSetting_Click(object sender, EventArgs e)
         {
@@ -163,32 +165,134 @@ namespace UngDung_QuanLyMatKhau
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTaoMK_Click(object sender, EventArgs e)
         {
-
-        }
-        private string RandomString(int size, bool lowerCase)
-        {
-            StringBuilder builder = new StringBuilder();
-            Random random = new Random();
-            char ch;
-            for (int i = 0; i < size; i++)
+            if (checkBoxMKChu.Checked)
             {
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
-                builder.Append(ch);
+                bool includeLowercase = true;
             }
-            if (lowerCase)
-                return builder.ToString().ToLower();
-            return builder.ToString();
-        }
+            else
+            {
+                bool includeLowercase = false;
+            }
+            if (checkBoxMKKyTu.Checked)
+            {
+                bool includeSpecial = true;
+            }
+            else
+            {
+                bool includeSpecial = false;
 
-        private void txtChieuDaiMK_TextChanged(object sender, EventArgs e)
+            }
+            if (checkBoxMKInHoa.Checked)
+            {
+                bool includeUppercase = true;
+            }
+            else
+            {
+                bool includeUppercase = false;
+            }
+            if (checkBoxMKSo.Checked)
+            {
+                bool includeNumeric = true;
+            }
+            else
+            {
+                bool includeNumeric = false;
+            }
+
+
+
+            int lengthOfPassword = 16;
+
+            string password = PasswordGenerator.GeneratePassword(checkBoxMKChu.Checked, checkBoxMKInHoa.Checked, checkBoxMKSo.Checked, checkBoxMKKyTu.Checked, lengthOfPassword);
+
+            while (!PasswordGenerator.PasswordIsValid(checkBoxMKChu.Checked, checkBoxMKInHoa.Checked, checkBoxMKSo.Checked, checkBoxMKKyTu.Checked, password))
+            {
+                password = PasswordGenerator.GeneratePassword(checkBoxMKChu.Checked, checkBoxMKInHoa.Checked, checkBoxMKSo.Checked, checkBoxMKKyTu.Checked, lengthOfPassword);
+            }
+
+            textBox2.Text = password.ToString();
+        }       
+        public static class PasswordGenerator
         {
-            int size;
+            public static string GeneratePassword(bool includeLowercase, bool includeUppercase, bool includeNumeric, bool includeSpecial, int lengthOfPassword)
+            {
+                const int MAXIMUM_IDENTICAL_CONSECUTIVE_CHARS = 2;
+                const string LOWERCASE_CHARACTERS = "abcdefghijklmnopqrstuvwxyz";
+                const string UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                const string NUMERIC_CHARACTERS = "0123456789";
+                const string SPECIAL_CHARACTERS = @"!#$%&*@\";
+                const string SPACE_CHARACTER = " ";
+                const int PASSWORD_LENGTH_MIN = 8;
+                const int PASSWORD_LENGTH_MAX = 128;
+
+                if (lengthOfPassword < PASSWORD_LENGTH_MIN || lengthOfPassword > PASSWORD_LENGTH_MAX)
+                {
+                    return "Password length must be between 8 and 128.";
+                }
+
+                string characterSet = "";
+
+                if (includeLowercase)
+                {
+                    characterSet += LOWERCASE_CHARACTERS;
+                }
+
+                if (includeUppercase)
+                {
+                    characterSet += UPPERCASE_CHARACTERS;
+                }
+
+                if (includeNumeric)
+                {
+                    characterSet += NUMERIC_CHARACTERS;
+                }
+
+                if (includeSpecial)
+                {
+                    characterSet += SPECIAL_CHARACTERS;
+                }
+
+
+                char[] password = new char[lengthOfPassword];
+                int characterSetLength = characterSet.Length;
+
+                System.Random random = new System.Random();
+                for (int characterPosition = 0; characterPosition < lengthOfPassword; characterPosition++)
+                {
+                    password[characterPosition] = characterSet[random.Next(characterSetLength - 1)];
+
+                    bool moreThanTwoIdenticalInARow =
+                        characterPosition > MAXIMUM_IDENTICAL_CONSECUTIVE_CHARS
+                        && password[characterPosition] == password[characterPosition - 1]
+                        && password[characterPosition - 1] == password[characterPosition - 2];
+
+                    if (moreThanTwoIdenticalInARow)
+                    {
+                        characterPosition--;
+                    }
+                }
+
+                return string.Join(null, password);
+            }
+            public static bool PasswordIsValid(bool includeLowercase, bool includeUppercase, bool includeNumeric, bool includeSpecial, string password)
+            {
+                const string REGEX_LOWERCASE = @"[a-z]";
+                const string REGEX_UPPERCASE = @"[A-Z]";
+                const string REGEX_NUMERIC = @"[\d]";
+                const string REGEX_SPECIAL = @"([!#$%&*@\\])+";
+                const string REGEX_SPACE = @"([ ])+";
+
+                bool lowerCaseIsValid = !includeLowercase || (includeLowercase && Regex.IsMatch(password, REGEX_LOWERCASE));
+                bool upperCaseIsValid = !includeUppercase || (includeUppercase && Regex.IsMatch(password, REGEX_UPPERCASE));
+                bool numericIsValid = !includeNumeric || (includeNumeric && Regex.IsMatch(password, REGEX_NUMERIC));
+                bool symbolsAreValid = !includeSpecial || (includeSpecial && Regex.IsMatch(password, REGEX_SPECIAL));
+
+                return lowerCaseIsValid && upperCaseIsValid && numericIsValid && symbolsAreValid ;
+            }
         }
-
-
-
 
     }
 }
+

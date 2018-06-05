@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblChieuDaiMK = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxMKInHoa = new System.Windows.Forms.CheckBox();
             this.checkBoxMKSo = new System.Windows.Forms.CheckBox();
             this.checkBoxMKChu = new System.Windows.Forms.CheckBox();
             this.checkBoxMKKyTu = new System.Windows.Forms.CheckBox();
-            this.txtChieuDaiMK = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTaoMK = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -74,23 +72,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblChieuDaiMK
-            // 
-            this.lblChieuDaiMK.AutoSize = true;
-            this.lblChieuDaiMK.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChieuDaiMK.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblChieuDaiMK.Location = new System.Drawing.Point(53, 68);
-            this.lblChieuDaiMK.Name = "lblChieuDaiMK";
-            this.lblChieuDaiMK.Size = new System.Drawing.Size(134, 19);
-            this.lblChieuDaiMK.TabIndex = 2;
-            this.lblChieuDaiMK.Text = "Chiều dài mật khẩu";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(53, 106);
+            this.label2.Location = new System.Drawing.Point(53, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 19);
             this.label2.TabIndex = 3;
@@ -101,7 +88,7 @@
             this.checkBoxMKInHoa.AutoSize = true;
             this.checkBoxMKInHoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMKInHoa.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBoxMKInHoa.Location = new System.Drawing.Point(53, 148);
+            this.checkBoxMKInHoa.Location = new System.Drawing.Point(52, 128);
             this.checkBoxMKInHoa.Name = "checkBoxMKInHoa";
             this.checkBoxMKInHoa.Size = new System.Drawing.Size(196, 23);
             this.checkBoxMKInHoa.TabIndex = 4;
@@ -114,7 +101,7 @@
             this.checkBoxMKSo.AutoSize = true;
             this.checkBoxMKSo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMKSo.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBoxMKSo.Location = new System.Drawing.Point(53, 187);
+            this.checkBoxMKSo.Location = new System.Drawing.Point(52, 178);
             this.checkBoxMKSo.Name = "checkBoxMKSo";
             this.checkBoxMKSo.Size = new System.Drawing.Size(140, 23);
             this.checkBoxMKSo.TabIndex = 5;
@@ -126,7 +113,7 @@
             this.checkBoxMKChu.AutoSize = true;
             this.checkBoxMKChu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMKChu.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBoxMKChu.Location = new System.Drawing.Point(291, 148);
+            this.checkBoxMKChu.Location = new System.Drawing.Point(291, 128);
             this.checkBoxMKChu.Name = "checkBoxMKChu";
             this.checkBoxMKChu.Size = new System.Drawing.Size(150, 23);
             this.checkBoxMKChu.TabIndex = 6;
@@ -138,38 +125,31 @@
             this.checkBoxMKKyTu.AutoSize = true;
             this.checkBoxMKKyTu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMKKyTu.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBoxMKKyTu.Location = new System.Drawing.Point(291, 187);
+            this.checkBoxMKKyTu.Location = new System.Drawing.Point(291, 178);
             this.checkBoxMKKyTu.Name = "checkBoxMKKyTu";
             this.checkBoxMKKyTu.Size = new System.Drawing.Size(215, 23);
             this.checkBoxMKKyTu.TabIndex = 7;
             this.checkBoxMKKyTu.Text = "Mật khẩu gồm ký tự đặc biệt";
             this.checkBoxMKKyTu.UseVisualStyleBackColor = true;
             // 
-            // txtChieuDaiMK
-            // 
-            this.txtChieuDaiMK.Location = new System.Drawing.Point(208, 69);
-            this.txtChieuDaiMK.Name = "txtChieuDaiMK";
-            this.txtChieuDaiMK.Size = new System.Drawing.Size(31, 20);
-            this.txtChieuDaiMK.TabIndex = 8;
-            this.txtChieuDaiMK.TextChanged += new System.EventHandler(this.txtChieuDaiMK_TextChanged);
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 105);
+            this.textBox2.Location = new System.Drawing.Point(141, 77);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(215, 20);
             this.textBox2.TabIndex = 9;
             // 
-            // button1
+            // btnTaoMK
             // 
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(454, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 46);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Tạo mật khẩu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTaoMK.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoMK.Location = new System.Drawing.Point(408, 62);
+            this.btnTaoMK.Name = "btnTaoMK";
+            this.btnTaoMK.Size = new System.Drawing.Size(120, 46);
+            this.btnTaoMK.TabIndex = 10;
+            this.btnTaoMK.Text = "Tạo mật khẩu";
+            this.btnTaoMK.UseVisualStyleBackColor = true;
+            this.btnTaoMK.Click += new System.EventHandler(this.btnTaoMK_Click);
             // 
             // btnAdd
             // 
@@ -493,15 +473,13 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTaoMK);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txtChieuDaiMK);
             this.Controls.Add(this.checkBoxMKKyTu);
             this.Controls.Add(this.checkBoxMKChu);
             this.Controls.Add(this.checkBoxMKSo);
             this.Controls.Add(this.checkBoxMKInHoa);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblChieuDaiMK);
             this.Controls.Add(this.pictureSetting);
             this.Controls.Add(this.pictureBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -525,15 +503,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBack;
-        private System.Windows.Forms.Label lblChieuDaiMK;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBoxMKInHoa;
         private System.Windows.Forms.CheckBox checkBoxMKSo;
         private System.Windows.Forms.CheckBox checkBoxMKChu;
         private System.Windows.Forms.CheckBox checkBoxMKKyTu;
-        private System.Windows.Forms.TextBox txtChieuDaiMK;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTaoMK;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
