@@ -37,7 +37,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnTaoMK = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblDangXuat = new System.Windows.Forms.Label();
@@ -156,29 +155,18 @@
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(53, 514);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 49);
+            this.btnAdd.Size = new System.Drawing.Size(139, 49);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(198, 514);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 49);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.button3_Click);
-            // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(350, 514);
+            this.btnDelete.Location = new System.Drawing.Point(253, 514);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(91, 49);
+            this.btnDelete.Size = new System.Drawing.Size(140, 49);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -187,9 +175,9 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(479, 514);
+            this.btnEdit.Location = new System.Drawing.Point(445, 514);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(95, 49);
+            this.btnEdit.Size = new System.Drawing.Size(129, 49);
             this.btnEdit.TabIndex = 14;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -300,7 +288,7 @@
             this.button6.ForeColor = System.Drawing.Color.Silver;
             this.button6.Location = new System.Drawing.Point(53, 220);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(169, 31);
+            this.button6.Size = new System.Drawing.Size(174, 31);
             this.button6.TabIndex = 18;
             this.button6.Text = "Tên tài khoản";
             this.button6.UseVisualStyleBackColor = false;
@@ -312,9 +300,9 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Silver;
-            this.button7.Location = new System.Drawing.Point(222, 220);
+            this.button7.Location = new System.Drawing.Point(226, 220);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(167, 31);
+            this.button7.Size = new System.Drawing.Size(174, 31);
             this.button7.TabIndex = 19;
             this.button7.Text = "Mật khẩu";
             this.button7.UseVisualStyleBackColor = false;
@@ -326,9 +314,9 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.Silver;
-            this.button8.Location = new System.Drawing.Point(389, 220);
+            this.button8.Location = new System.Drawing.Point(399, 220);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(185, 31);
+            this.button8.Size = new System.Drawing.Size(173, 31);
             this.button8.TabIndex = 20;
             this.button8.Text = "Ghi chú";
             this.button8.UseVisualStyleBackColor = false;
@@ -471,7 +459,6 @@
             this.Controls.Add(this.lblDangXuat);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnTaoMK);
             this.Controls.Add(this.textBox2);
@@ -511,7 +498,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnTaoMK;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblDangXuat;

@@ -86,9 +86,11 @@ namespace UngDung_QuanLyMatKhau
                 cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
                 cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
                 cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
+                cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("Thêm thành công hãy bấm nút lưu để thay đổi", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Thêm thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearData();
+                DisplayData();
             }
             DisplayData();
         }
@@ -142,22 +144,6 @@ namespace UngDung_QuanLyMatKhau
             con.Close();
             DisplayData();
             ClearData();
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            cmd = new SqlCommand("insert into TaiKhoan(TaiKhoan,MatKhau,Note) values(@taikhoan,@matkhau,@ghichu)", con);
-            con.Open();
-            cmd.Parameters.AddWithValue("@taikhoan", txtTaiKhoan.Text);
-            cmd.Parameters.AddWithValue("@matkhau", txtMatKhau.Text);
-            cmd.Parameters.AddWithValue("@ghichu", txtGhiChu.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Lưu thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DisplayData();
-            ClearData();
-
         }
 
         private void checkBoxMKInHoa_CheckedChanged(object sender, EventArgs e)
