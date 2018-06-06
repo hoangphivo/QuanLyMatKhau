@@ -16,7 +16,7 @@ namespace UngDung_QuanLyMatKhau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formUngDung());
+            Application.Run(new frm_LogIn());
         }
     }
 }
